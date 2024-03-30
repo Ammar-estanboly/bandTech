@@ -31,7 +31,7 @@ class RegisterController extends Controller
     {
 
 
-        $user = $this->userService->create($request);
+        $user = $this->userService->register($request);
 
         // Format and return a successful response with user resource
         return $this->formatResponse(

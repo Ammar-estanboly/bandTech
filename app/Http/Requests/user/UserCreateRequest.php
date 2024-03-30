@@ -25,6 +25,7 @@ class UserCreateRequest extends FormRequest
             //
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255',
+            'type' => 'required|in:normal,gold,silver',
             'email' => 'required|string|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Minimum password length is 8
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation

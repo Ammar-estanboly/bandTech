@@ -27,6 +27,7 @@ class UserUpdateRequest extends FormRequest
             //
             'name' => 'string|max:255',
             'username' => 'string|max:255',
+            'type' => 'in:normal,gold,silver',
             'email'         => [ 'string', 'email', 'max:255', 'unique:users,email,'. $this->user->id],
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation
         ];
