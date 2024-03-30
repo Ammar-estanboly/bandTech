@@ -3,8 +3,9 @@
 namespace App\Http\Requests\user;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
-class UserRegisterRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +22,12 @@ class UserRegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             //
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|confirmed', // Minimum password length is 8
+            'name' => 'string|max:255',
+            'username' => 'string|max:255',
+            'email'         => [ 'string', 'email', 'max:255', 'unique:users,email,'. $this->user->id],
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation
         ];
     }

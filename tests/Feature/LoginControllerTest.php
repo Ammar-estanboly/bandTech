@@ -20,6 +20,7 @@ class LoginControllerTest extends TestCase
     {
         $user = User::create([
             'name' =>'ammar',
+            'username' =>'ammar',
             'email' =>'ammar@gmail.com',
             'is_active' =>true,
             'password' =>'password123'
@@ -63,6 +64,7 @@ class LoginControllerTest extends TestCase
     {
         $user = User::create([
             'name' =>'ammar',
+            'username' =>'ammar',
             'email' =>'ammar@gmail.com',
             'is_active' =>true,
             'password' =>'password123'

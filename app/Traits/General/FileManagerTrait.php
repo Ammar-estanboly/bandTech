@@ -37,6 +37,7 @@ trait FileManagerTrait {
     //delete file if exists
     public function deleteFile($path)
     {
+        $path = $this->getrealpath($path);
         if( Storage::exists($path)){
             Storage::delete($path);
             return 1;
