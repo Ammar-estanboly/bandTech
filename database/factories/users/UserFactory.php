@@ -30,6 +30,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '1234@1234',
             'remember_token' => Str::random(10),
+            'is_active' => $this->faker->boolean,
+
         ];
     }
 

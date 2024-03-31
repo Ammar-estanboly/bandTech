@@ -24,6 +24,7 @@ class UserCreateRequest extends FormRequest
         return [
             //
             'name' => 'required|string|max:255',
+            'is_active'   =>'required|boolean',
             'username' => 'required|string|max:255',
             'type' => 'required|in:normal,gold,silver',
             'email' => 'required|string|email|unique:users,email|max:255',

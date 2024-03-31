@@ -26,6 +26,7 @@ class UserUpdateRequest extends FormRequest
         return [
             //
             'name' => 'string|max:255',
+            'is_active'   =>'boolean',
             'username' => 'string|max:255',
             'type' => 'in:normal,gold,silver',
             'email'         => [ 'string', 'email', 'max:255', 'unique:users,email,'. $this->user->id],

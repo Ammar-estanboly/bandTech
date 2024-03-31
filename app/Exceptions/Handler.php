@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use  Illuminate\Validation\ValidationException;
 use Throwable;
@@ -82,8 +83,20 @@ class Handler extends ExceptionHandler
                     "data"    => [],
                     "message" =>'error',
                     "status_code"=>404,
-                    "errors"=>['recorde not found']
+                    "errors"=>['not found']
                 ], 404);
+            }
+        });
+
+        $this->renderable(function (ServerException $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    "success" => false,
+                    "data"    => [],
+                    "message" =>'error',
+                    "status_code"=>500,
+                    "errors"=>[$e]
+                ], 500);
             }
         });
 

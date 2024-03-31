@@ -35,17 +35,17 @@ class UserControllerTest extends TestCase
 
 
     public function test_show_returns_user_resource_for_found_user()
-{
-    $user = User::factory()->create();
-    $userService = Mockery::mock(UserService::class);
-    $userService->shouldReceive('find')->with($user->id)->once()->andReturn($user);
+        {
+            $user = User::factory()->create();
+            $userService = Mockery::mock(UserService::class);
+            $userService->shouldReceive('find')->with($user->id)->once()->andReturn($user);
 
-    $controller = new UserController($userService);
+            $controller = new UserController($userService);
 
-    $response = $controller->show($user->id);
+            $response = $controller->show($user->id);
 
-    $this->assertEquals(200, $response->getStatusCode());
-}
+            $this->assertEquals(200, $response->getStatusCode());
+        }
 
 
 
