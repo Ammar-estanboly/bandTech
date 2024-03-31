@@ -14,7 +14,7 @@ This project is developed for Bandtech. It utilizes the Laravel framework versio
 **1. Clone the Repository:**
 
 ```bash
-git clone https://github.com/your-username/bandtech-project.git
+git clone https://github.com/Ammar-estanboly/bandTech.git
 ```
 
 **2. change dir:**
