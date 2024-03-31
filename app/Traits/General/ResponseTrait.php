@@ -2,14 +2,14 @@
 
 namespace App\Traits\General;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 trait ResponseTrait {
 
 
-    public function formatResponse($status,$data,$message,$code,$errors){
-
-
+    public function formatResponse(bool $status,$data,string $message,int $code,$errors): JsonResponse
+        {
         $response = [
             "success" => $status,
             "data"    => $data,

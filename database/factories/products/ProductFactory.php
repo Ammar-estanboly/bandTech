@@ -24,7 +24,6 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
-            'image' => $this->faker->imageUrl(),
             'price' => ['normal' =>  $this->faker->numberBetween(400, 600),
                         'gold' =>  $this->faker->numberBetween(100, 200),
                         'silver' =>  $this->faker->numberBetween(200, 400)], // حقل السعر

@@ -33,8 +33,9 @@ class ProductService
 
     public function delete(Product $product): bool
     {
-
-        $this->deleteFile($product->image);
+        if($this->ProductHasImage( $product)){
+            $this->deleteFile($product->image);
+        }
         return $this->productRepository->delete($product);
     }
 
@@ -69,6 +70,18 @@ class ProductService
        return $product;
     }
 
+
+    /**
+     * check if product has image.
+     *
+     * @param Product
+     * @return boolean true if has image false if image default
+     */
+    private function ProductHasImage(Product $product): bool
+    {
+        return ! ($product->image == asset('images/default-product.png') );
+
+    }
 
 
 

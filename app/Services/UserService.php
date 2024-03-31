@@ -38,8 +38,9 @@ class UserService
 
     public function delete(User $user): bool
     {
-
-        $this->deleteFile($user->avatar);
+        if($this->UserHasAvatar($user)){
+            $this->deleteFile($user->avatar);
+        }
         return $this->userRepository->delete($user);
     }
 
@@ -97,6 +98,7 @@ class UserService
             'email' => $userData['email'],
             'password' => $userData['password'], // Use bcrypt for password hashing in model setter
             'is_active' =>true,
+            'type'     =>'normal'
         ];
 
         if ($this->requestHasAvatar($request)) {
@@ -148,7 +150,17 @@ class UserService
 
 
 
+    /**
+     * check if user has avater.
+     *
+     * @param User
+     * @return boolean true if has avater false if avater default
+     */
+    private function UserHasAvatar(User $user): bool
+    {
+        return ! ( $user->avatar == asset('images/default-avatar.png') );
 
+    }
 
 
 
